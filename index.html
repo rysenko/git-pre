@@ -88,7 +88,7 @@
                     ## Отличия от SVN
                     * Вся история на машине
                     * Работаем с изменениями (changeset) а не версиями
-                    * Нет цифровых номеров ревизий, есть длинный идентификаторы
+                    * Нет цифровых номеров ревизий, есть длинный SHA-1 хэш
                     * Нет единого update/commit. Есть fetch/push и pull/commit
                     * Перед коммитом файл надо добавить в коммит (git add)
                     * Авторизация чаще по SSH ключу, чем по login/password
@@ -176,6 +176,20 @@
                         ```
                     </section>
                     <section data-markdown>
+                        Создаем новую ветку
+                        ```
+                        $ git checkout -b bug-1234
+                        ```
+                        Переключаемся на ветку
+                        ```
+                        $ git checkout bug-1234
+                        ```
+                        Удаляем ветку
+                        ```
+                        $ git branch -d bug-1234
+                        ```
+                    </section>
+                    <section data-markdown>
                         Удаленные репозитории
                         ```
                         $ git remote -v
@@ -204,6 +218,22 @@
                         ```
                     </section>
                     <section data-markdown>
+                        Отложить изменения на потом
+                        ```
+                        $ git stash
+                        ```
+                        Вернуть изменения
+                        ```
+                        $ git stash pop
+                        ```
+                        Алиасы в ~/.gitconfig
+                        ```
+                        [alias]
+                            up = fetch --all
+                            rmold = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+                        ```
+                    </section>
+                    <section data-markdown>
                         Забираем изменения со всех remotes
                         ```
                         $ git fetch --all
@@ -221,8 +251,40 @@
                 </section>
 
                 <section data-markdown>
+                    ## Ветки
+                    * Ветки это просто указатели на изменения (changeset)
+                    * Создание ветки легко, мердж прост
+                    * Создавайте ветки для любых экспериментов с кодом
+                </section>
+
+                <section data-markdown>
                     ## Merge vs Rebase
-                    ![Rebase](img/merge-rebase.png)
+                    ![Before](img/rebase01.jpg)
+
+                    ![Merge](img/rebase02.jpg)
+
+                    ![Rebase](img/rebase03.jpg)
+                </section>
+
+                <section data-markdown>
+                    ## Merge
+                    ![no-ff](img/no-ff.png)
+                </section>
+
+                <section data-markdown>
+                    ## Pull Requests
+                    * Ревью кода и комментарии
+                    * Мердж (с no-ff) в один клик
+                    * Проверка возможности безконфликтного мерджа
+                </section>
+
+                <section>
+                    <div style="float: left; padding-top: 300px;">
+                        <a href="http://nvie.com/posts/a-successful-git-branching-model/">git-flow</a>
+                    </div>
+                    <div style="float: left; padding-left: 50px;">
+                        <img src="img/git-flow.png">
+                    </div>
                 </section>
 
                 <section id="transitions">
