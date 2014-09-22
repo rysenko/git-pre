@@ -67,12 +67,13 @@
 
                 <section data-markdown>
                     ## Скорость
-                    Нет сетевых запросов, все операции (кроме push/fetch) локальны
+                    Нет сетевых запросов, все операции (кроме push/fetch) локальны.
                 </section>
 
                 <section data-markdown>
                     ## Гибкость
-                    Бранчи очень дешевы.
+                    Ветки это просто указатели на изменения. Создание и удаление веток моментальны.
+
                     Мерджи обычно легки.
 
                     Позволяет выстраивать удобные вам деревья бранчей.
@@ -200,11 +201,11 @@
                         ```
                         Пушим изменения
                         ```
-                        $ git push origin master
+                        $ git push origin bug-1234
                         ```
                         Ставим умолчательный remote
                         ```
-                        $ git push -u origin master
+                        $ git push -u origin bug-1234
                         ```
                         и потом просто
                         ```
@@ -214,7 +215,7 @@
                         ```
                         $ git config --global push.default simple
                         ```
-                        Резолвим конфликты :)
+                        Принудительно переписываем удаленную ветку
                         ```
                         $ git push -f
                         ```
@@ -257,19 +258,14 @@
                 </section>
 
                 <section data-markdown>
-                    ## Ветки
-                    * Ветки это просто указатели на изменения (changeset)
-                    * Создание ветки легко, мердж прост
-                    * Создавайте ветки для любых экспериментов с кодом
-                </section>
-
-                <section data-markdown>
                     ## Merge vs Rebase
                     ![Before](img/rebase01.jpg)
 
                     ![Merge](img/rebase02.jpg)
 
                     ![Rebase](img/rebase03.jpg)
+
+                    [Больше картинок и русского текста](http://habrahabr.ru/post/161009/)
                 </section>
 
                 <section data-markdown>
@@ -280,24 +276,6 @@
                 <section data-markdown>
                     ## Interactive Rebase
                     Позволяет причесать историю (склеить, поменять сообщения, исключить коммиты) перед merge в master. Делается из [командной строки](https://help.github.com/articles/about-git-rebase).
-                </section>
-
-                <section data-markdown>
-                    ## Pull Requests
-                    * Ревью кода и комментарии
-                    * Мердж (с no-ff) в один клик
-                    * Проверка возможности безконфликтного мерджа
-                </section>
-
-                <section data-markdown>
-                    ## Forks
-                    * Плюсы
-                      * Ломаешь только свой форк
-                      * Контроль прав (в случае GitHub)
-                      * Только fork в случае OSS контрибуций
-                    * Минусы
-                      * Надо добавлять remotes
-                      * Дольше fetch
                 </section>
 
                 <section>
@@ -327,6 +305,24 @@
                       * [GitLab](https://about.gitlab.com/)
                       * [Stash](https://www.atlassian.com/software/stash)
                       * Репозиторий без красоты и PRs
+                </section>
+
+                <section data-markdown>
+                    ## Pull Requests
+                    * Ревью кода и комментарии
+                    * Мердж (с no-ff) в один клик
+                    * Проверка возможности безконфликтного мерджа
+                </section>
+
+                <section data-markdown>
+                    ## Forks
+                    * Плюсы
+                    * Ломаешь только свой форк
+                    * Контроль прав (в случае GitHub)
+                    * Только fork в случае OSS контрибуций
+                    * Минусы
+                    * Надо добавлять remotes
+                    * Дольше fetch
                 </section>
 
                 <section data-markdown>
